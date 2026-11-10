@@ -31,7 +31,11 @@ namespace ModuloAdminBodegon.Models
             return Fecha.Date >= DateTime.Today && Fecha.DayOfWeek != DayOfWeek.Monday;
         }
 
-   
+        // Al menos 1 persona. El máximo lo controla el cupo del turno (TurnoLibre.HayCupo)
+        private bool EsCantidadPersonasValida()
+        {
+            return CantidadPersonas > 0;
+        }
 
         // Recibe la secuencia, le pide el número siguiente y lo guarda como número de esta reserva
         public void AsignarNumero(SecuenciaReserva secuencia)
@@ -39,7 +43,28 @@ namespace ModuloAdminBodegon.Models
             NumeroReserva = secuencia.GenerarNumeroReserva();
         }
 
+        // Borrado lógico: solo se pueden cancelar reservas activas. Devuelve false si no se pudo
+        public bool Cancelar()
+        {
+            if (Estado != EstadoReserva.Activa)
+            {
+                return false;
+            }
 
+            Estado = EstadoReserva.Cancelada;
+            return true;
+        }
 
+        // Si la reserva sigue activa y su día ya pasó, pasa a Completada. Devuelve true si cambió
+        public bool CompletarSiYaPaso()
+        {
+            if (Estado == EstadoReserva.Activa && Fecha.Date < DateTime.Today)
+            {
+                Estado = EstadoReserva.Completada;
+                return true;
+            }
+
+            return false;
+        }
     }
 }
