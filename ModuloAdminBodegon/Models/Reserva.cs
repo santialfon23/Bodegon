@@ -23,6 +23,22 @@ namespace ModuloAdminBodegon.Models
         public bool EsValida()
         {
             return EsFechaValida() && EsCantidadPersonasValida();
+
+
+
+        }
+
+
+        // Al menos 1 persona. El máximo lo controla el cupo del turno (TurnoLibre, en la base)
+        private bool EsCantidadPersonasValida()
+        {
+            return CantidadPersonas > 0;
+        }
+
+        // La reserva no se elimina, pasa a estado Cancelada
+        public void Cancelar()
+        {
+            Estado = EstadoReserva.Cancelada;
         }
 
         // La fecha debe ser hoy o futura y no puede ser lunes (local cerrado)
