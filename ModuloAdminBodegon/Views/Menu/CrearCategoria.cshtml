@@ -1,0 +1,95 @@
+@model ModuloAdminBodegon.Models.Categoria
+
+@{
+    Layout = null;
+    ViewData["Title"] = "Registrar Nueva Categoría - Bodegón Don Macanudo";
+}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <title>@ViewData["Title"]</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link href="~/css/style.css" rel="stylesheet">
+</head>
+<body>
+    <div class="content-wrapper">
+        <div id="cabecera">
+            <div class="circulo-logo">
+                <img src="~/imagenes/logo_chef_bodegon.png" alt="Logo Bodegón Don Macanudo" class="img-logo">
+            </div>
+            <h1>BODEGÓN DON MACANUDO</h1>
+            <p class="subtitulo">— Registrar Nueva Categoría —</p>
+        </div>
+
+        <div class="container contenedor-principal" style="margin-top: 40px; margin-bottom: 40px; max-width: 600px;">
+            <div class="row" style="margin-bottom: 25px;">
+                <div class="col-xs-12">
+                    <a asp-action="Index" class="btn btn-default"><i class="fa fa-arrow-left"></i> Volver al Menú</a>
+                </div>
+            </div>
+
+            <div class="panel panel-default" style="border-color: #8b0000; box-shadow: 0 2px 5px rgba(0,0,0,0.1);">
+                <div class="panel-heading" style="background-color: #8b0000; color: white;">
+                    <h3 class="panel-title" style="font-family: 'Playfair Display', serif; font-size: 20px;">
+                        <i class="fa fa-folder-o"></i> Registrar Nueva Categoría
+                    </h3>
+                </div>
+                <div class="panel-body" style="padding: 25px;">
+                    <form asp-action="CrearCategoria" method="post">
+                        <!-- Muestra errores si algo falla -->
+                        <div asp-validation-summary="ModelOnly" class="text-danger" style="margin-bottom: 15px;"></div>
+
+                        <div class="form-group">
+                            <label asp-for="Nombre" class="control-label">Nombre de la Categoría</label>
+                            <input asp-for="Nombre" class="form-control" placeholder="Ej: Entradas, Postres, Minutas..." required />
+                        </div>
+
+                        <div class="form-group">
+                            <label asp-for="Posicion" class="control-label">Posición de visualización (Orden)</label>
+                            <input asp-for="Posicion" type="number" class="form-control" value="1" min="1" required />
+                            <span class="help-block" style="font-size: 12px; color: #666;">Número menor aparece primero en la carta (ej: 1, 2, 3...).</span>
+                        </div>
+
+                        <div class="form-group">
+                            <label asp-for="Icono" class="control-label">Icono de la Categoría</label>
+                            <select asp-for="Icono" class="form-control" required>
+                                <option value="">-- Seleccioná un icono --</option>
+                                <option value="fa-cutlery">🍽 Cubiertos / General (fa-cutlery)</option>
+                                <option value="fa-glass">🍷 Bebidas / Bar (fa-glass)</option>
+                                <option value="fa-fire">🔥 Parrilla / Minutas (fa-fire)</option>
+                                <option value="fa-coffee">☕ Desayunos / Cafetería (fa-coffee)</option>
+                                <option value="fa-birthday-cake">🎂 Postres / Dulces (fa-birthday-cake)</option>
+                                <option value="fa-spoon">🥄 Platos hondos / Sopas (fa-spoon)</option>
+                                <option value="fa-beer">🍺 Cervezas / Tragos (fa-beer)</option>
+                                <option value="fa-star">⭐ Estrella / Especiales (fa-star)</option>
+                                <option value="fa-heart">❤️ Corazón / Favoritos (fa-heart)</option>
+                            </select>
+                            <span class="help-block" style="font-size: 12px; color: #666;">Seleccioná el icono que se mostrará al lado del título en la carta.</span>
+                        </div>
+
+                        <div class="form-group text-right" style="margin-top: 25px;">
+                            <button type="submit" class="btn btn-success" style="background-color: #8b0000; border-color: #700000; padding: 10px 20px;">
+                                <i class="fa fa-save"></i> Guardar Categoría
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="footer">
+        <p><strong>Bodegón Don Macanudo</strong> — Pasaje Ficticio 1234 (Esquina Fantasía)</p>
+        <p>Reservas: (011) 5555-4321 — Abierto de Martes a Domingos</p>
+        <ul class="list-inline">
+            <li><a href="https://instagram.com" target="_blank"><i class="fa fa-instagram"></i></a></li>
+            <li><a href="https://facebook.com" target="_blank"><i class="fa fa-facebook"></i></a></li>
+            <li><a href="https://whatsapp.com" target="_blank"><i class="fa fa-whatsapp"></i></a></li>
+        </ul>
+    </div>
+</body>
+</html>
