@@ -1,0 +1,349 @@
+body {
+  background-color: #2b1d19;
+  color: #333333;
+  font-family: 'Roboto', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+#cabecera {
+  background-color: #5c1414;
+  color: #ffffff;
+  text-align: center;
+  padding: 40px 20px 30px 20px;
+  border-bottom: 4px solid #c59b27;
+}
+
+.circulo-logo {
+  width: 90px;
+  height: 90px;
+  background-color: #c59b27;
+  color: #5c1414;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 26px;
+  margin-bottom: 10px;
+  overflow: hidden;
+}
+
+#cabecera h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 36px;
+  margin: 5px 0;
+  letter-spacing: 2px;
+}
+
+.subtitulo {
+  font-size: 15px;
+  color: #e6c875;
+  margin: 0;
+  font-style: italic;
+}
+
+.contenedor-principal {
+  background-color: #fcf9f2;
+  padding: 30px;
+  margin-top: 25px;
+  margin-bottom: 25px;
+  border-radius: 6px;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.4);
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.row > [class*="col-"] {
+  display: flex;
+}
+
+.bloque-categoria {
+  background: #ffffff;
+  border: 1px solid #e2d7c5;
+  border-top: 3px solid #5c1414;
+  padding: 18px;
+  margin-bottom: 25px;
+  border-radius: 4px;
+  width: 100%;
+}
+
+.bloque-categoria h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 18px;
+  color: #5c1414;
+  margin-top: 0;
+  margin-bottom: 15px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #c59b27;
+  text-transform: uppercase;
+}
+
+.bloque-categoria h2 i {
+  color: #c59b27;
+  margin-right: 6px;
+}
+
+.tabla-comida {
+  width: 100%;
+  table-layout: fixed;
+}
+
+.tabla-comida td {
+  padding: 8px 0;
+  vertical-align: top;
+  border-bottom: 1px dotted #dcd3c1;
+}
+
+.detalle-plato {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.foto-item {
+  width: 128px;
+  aspect-ratio: 1408 / 768;
+  object-fit: cover;
+  border-radius: 6px;
+  border: 1px solid #e2d7c5;
+  flex-shrink: 0;
+}
+
+.img-logo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.info-texto {
+  flex: 1;
+}
+
+.tabla-comida tr:last-child td {
+  border-bottom: none;
+}
+
+.tabla-comida td strong {
+  color: #2b1d19;
+  font-size: 14px;
+}
+
+.tabla-comida td small {
+  display: block;
+  color: #666666;
+  font-size: 12px;
+  margin-top: 2px;
+}
+
+.tabla-comida td.precio {
+  width: 70px;
+  text-align: right;
+  font-weight: bold;
+  color: #5c1414;
+  font-size: 14px;
+  white-space: nowrap;
+  padding-left: 10px;
+  vertical-align: top;
+}
+
+.tag-plato {
+  background-color: #c59b27;
+  color: #ffffff;
+  font-size: 8px;
+  font-weight: bold;
+  padding: 2px 3px;
+  border-radius: 3px;
+  text-transform: uppercase;
+  display: block;
+  width: fit-content;
+  vertical-align: middle;
+  margin-top: 4px;
+  white-space: nowrap;
+}
+
+.aviso-pie {
+  background-color: #f4ece1;
+  border: 1px solid #c59b27;
+  padding: 12px;
+  text-align: center;
+  font-size: 13px;
+  color: #5c1414;
+  border-radius: 4px;
+  margin-top: 10px;
+}
+
+#bloque-reserva {
+  text-align: center;
+  margin: 20px 0;
+}
+
+.btn-reserva {
+  background-color: #5c1414;
+  border-color: #5c1414;
+  color: #ffffff;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.btn-reserva:hover,
+.btn-reserva:focus {
+  background-color: #c59b27;
+  border-color: #c59b27;
+  color: #5c1414;
+}
+
+.caja-reserva {
+  background: #ffffff;
+  border: 1px solid #e2d7c5;
+  border-top: 3px solid #5c1414;
+  border-radius: 6px;
+  padding: 30px;
+  max-width: 420px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.caja-reserva h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 22px;
+  color: #5c1414;
+  margin: 0 0 5px 0;
+}
+
+.caja-reserva h2 i {
+  color: #c59b27;
+  margin-right: 6px;
+}
+
+.caja-reserva .form-group {
+  text-align: left;
+}
+
+.caja-reserva label {
+  font-size: 12px;
+  color: #5c1414;
+  font-weight: bold;
+}
+
+.reserva-subtitulo {
+  color: #666666;
+  font-size: 13px;
+  margin-bottom: 20px;
+}
+
+.enlace-volver {
+  display: inline-block;
+  margin-top: 15px;
+  color: #5c1414;
+  font-size: 13px;
+  text-decoration: underline;
+}
+
+.enlace-volver:hover {
+  color: #c59b27;
+}
+
+#footer {
+  background-color: #1a110f;
+  color: #bbbbbb;
+  text-align: center;
+  padding: 30px 15px;
+  font-size: 13px;
+}
+
+#footer strong {
+  color: #ffffff;
+}
+
+#footer p {
+  margin-bottom: 8px;
+}
+
+#footer a {
+  color: #c59b27;
+  font-size: 22px;
+  margin: 0 10px;
+}
+
+#footer a:hover {
+  color: #ffffff;
+}
+
+.circulo_ok_reserva 
+{
+font-size: 48px; color: #5c1414;
+}
+
+/* Mis clases para la pagina principal */
+
+.separador-ppal {
+    margin-right: 10px;
+}
+.caja-botones-ppal {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.titulo-ppal {
+    font-family: 'Playfair Display', serif;
+    color: #5c1414;
+    font-size: 28px;
+    margin-bottom: 15px;
+}
+
+.texto-ppal {
+    font-size: 15px;
+    color: #555555;
+    line-height: 1.6;
+    margin-bottom: 25px;
+}
+
+.foto-ppal {
+    width: 100%;
+    max-height: 380px;
+    object-fit: cover;
+    border-radius: 6px;
+    border: 3px solid #c59b27;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.caja-centro-ppal {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 10px;
+}
+
+.detalles-reserva {
+    margin: 20px 0;
+    font-size: 15px;
+    color: #333;
+}
+
+.reserva-numero {
+    color: #5c1414;
+    font-size: 18px;
+}
+
+.reserva-nombre {
+    color: #5c1414;
+    font-size: 18px;
+}
+
+/* Footer siempre abajo: el contenido ocupa el espacio libre y empuja el footer */
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.content-wrapper {
+  flex: 1;
+}
+
+#footer {
+  flex-shrink: 0;
+}
