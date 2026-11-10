@@ -1,25 +1,38 @@
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.FileProviders;
+using ModuloAdminBodegon.Models;
+
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
+// MVC: controladores + vistas
 builder.Services.AddControllersWithViews();
+
+// Base de datos (es la misma que usa el Módulo Usuario)
+builder.Services.AddDbContext<BodegonContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("BodegonConnection")));
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
-if (!app.Environment.IsDevelopment())
+// Todas las URLs del módulo empiezan con /ModuloAdminBodegon
+app.UsePathBase("/ModuloAdminBodegon");
+
+// Fotos de los platos: carpeta compartida con el Módulo Usuario (ruta en appsettings.json)
+string rutaImagenes = builder.Configuration["RutaImagenes"]!;
+Directory.CreateDirectory(rutaImagenes);
+app.UseStaticFiles(new StaticFileOptions
 {
-    app.UseExceptionHandler("/Home/Error");
-}
+    FileProvider = new PhysicalFileProvider(rutaImagenes),
+    RequestPath = "/imagenes"
+});
+
+// Archivos de wwwroot (css, js, logo)
+app.UseStaticFiles();
+
 app.UseRouting();
 
-app.UseAuthorization();
-
-app.MapStaticAssets();
-
+// Ruta por defecto: /Controlador/Accion/id
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}")
-    .WithStaticAssets();
-
+    pattern: "{controller=Home}/{action=Index}/{id?}");
 
 app.Run();
