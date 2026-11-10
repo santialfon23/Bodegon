@@ -1,7 +1,12 @@
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+
 namespace ModuloAdminBodegon.Models
 {
     public class TurnoLibre
     {
+        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
         public TipoTurno Turno { get; set; }
         public int CapacidadMaxima { get; set; }
