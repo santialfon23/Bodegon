@@ -1,4 +1,6 @@
 @{
+    @using ModuloUsuarioBodegon.Models
+    @model Reserva
     Layout = null;
 }
 <!DOCTYPE html>
@@ -61,15 +63,14 @@
 
                 <!-- Turno -->
                 <div class="form-group">
-                    <label for="r-turno">Turno</label>
-                    <select id="r-turno" name="Turno" class="form-control" required>
+                    <label asp-for="Turno">Turno</label>
+                    <select asp-for="Turno"
+                            asp-items="Html.GetEnumSelectList<TipoTurno>()"
+                            class="form-control" required>
                         <option value="">Elegí un turno</option>
-                        <option value="Almuerzo" selected="@(ViewBag.Turno == "Almuerzo" ? "selected" : null)">Almuerzo</option>
-                        <option value="Merienda" selected="@(ViewBag.Turno == "Merienda" ? "selected" : null)">Merienda</option>
-                        <option value="Cena" selected="@(ViewBag.Turno == "Cena" ? "selected" : null)">Cena</option>
                     </select>
+                    <span asp-validation-for="Turno" class="text-danger"></span>
                 </div>
-
                 <!-- Cantidad de personas -->
                 <div class="form-group" id="grupo-cantidad">
                     <label for="r-personas">Cantidad de personas</label>
