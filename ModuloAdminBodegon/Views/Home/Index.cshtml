@@ -1,8 +1,78 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    Layout = null;
+    ViewData["Title"] = "Panel de Administración - Bodegón Don Macanudo";
 }
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <title>@ViewData["Title"]</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link href="~/css/style.css" rel="stylesheet">
+</head>
+<body>
+    <div class="content-wrapper">
+        <div id="cabecera">
+            <div class="circulo-logo">
+                <img src="~/imagenes/logo_chef_bodegon.png" alt="Logo Bodegón Don Macanudo" class="img-logo">
+            </div>
+            <h1>BODEGÓN DON MACANUDO</h1>
+            <p class="subtitulo">— Panel de Gestión Administrativa —</p>
+        </div>
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+        <div class="container contenedor-principal" style="margin-top: 40px; margin-bottom: 40px;">
+            <div class="row text-center">
+                <div class="col-xs-12" style="margin-bottom: 30px;">
+                    <h2>Seleccioná el módulo que deseas administrar</h2>
+                </div>
+            </div>
+
+            <div class="row" style="display: flex; justify-content: center; flex-wrap: wrap;">
+                <!-- 1. Reservas y Cupos -->
+                <div class="col-xs-12 col-sm-6 col-md-4 text-center" style="margin-bottom: 20px;">
+                    <div class="bloque-categoria" style="padding: 25px 15px;">
+                        <i class="fa fa-calendar fa-3x" style="color: #8b0000; margin-bottom: 15px;"></i>
+                        <h3>Reservas y Cupos</h3>
+                        <p><small>Ver reservas vigentes por día y cancelar turnos.</small></p>
+                        <a asp-controller="Reservas" asp-action="Index" class="btn btn-reserva btn-block" style="margin-top: 15px;">Administrar</a>
+                    </div>
+                </div>
+
+                <!-- 2. Menú -->
+                <div class="col-xs-12 col-sm-6 col-md-4 text-center" style="margin-bottom: 20px;">
+                    <div class="bloque-categoria" style="padding: 25px 15px;">
+                        <i class="fa fa-book fa-3x" style="color: #8b0000; margin-bottom: 15px;"></i>
+                        <h3>Menú</h3>
+                        <p><small>Platos, precios y administración de la carta.</small></p>
+                        <a asp-controller="Menu" asp-action="Index" class="btn btn-reserva btn-block" style="margin-top: 15px;">Administrar</a>
+                    </div>
+                </div>
+
+                <!-- 3. Turnos y Capacidad -->
+                <div class="col-xs-12 col-sm-6 col-md-4 text-center" style="margin-bottom: 20px;">
+                    <div class="bloque-categoria" style="padding: 25px 15px;">
+                        <i class="fa fa-clock-o fa-3x" style="color: #8b0000; margin-bottom: 15px;"></i>
+                        <h3>Turnos y Capacidad</h3>
+                        <p><small>Modificar cupos máximos por turno.</small></p>
+                        <a asp-controller="Turnos" asp-action="Index" class="btn btn-reserva btn-block" style="margin-top: 15px;">Administrar</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="footer">
+        <p><strong>Bodegón Don Macanudo</strong> — Pasaje Ficticio 1234 (Esquina Fantasía)</p>
+        <p>Reservas: (011) 5555-4321 — Abierto de Martes a Domingos</p>
+        <ul class="list-inline">
+            <li><a href="https://instagram.com" target="_blank"><i class="fa fa-instagram"></i></a></li>
+            <li><a href="https://facebook.com" target="_blank"><i class="fa fa-facebook"></i></a></li>
+            <li><a href="https://whatsapp.com" target="_blank"><i class="fa fa-whatsapp"></i></a></li>
+        </ul>
+    </div>
+</body>
+</html>
