@@ -1,8 +1,14 @@
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+
 namespace ModuloUsuarioBodegon.Models
 {
     public class TurnoLibre
     {
+        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
+
         public TipoTurno Turno { get; set; }
 
         // En el módulo Usuario solo se lee; la capacidad la modifica el módulo Administrador
