@@ -8,7 +8,7 @@ namespace ModuloAdminBodegon.Models
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
-        public string NumeroReserva { get; set; }
+        public string NumeroReserva { get; set; } = null!;
         public DateTime Fecha { get; set; }
         public int CantidadPersonas { get; set; }
         public TipoTurno Turno { get; set; }
@@ -18,7 +18,7 @@ namespace ModuloAdminBodegon.Models
 
         // Relación con el Cliente
         public int ClienteId { get; set; }
-        public Cliente Cliente { get; set; }
+        public Cliente Cliente { get; set; } = null!;
 
         public bool EsValida()
         {
