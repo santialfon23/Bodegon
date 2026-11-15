@@ -9,13 +9,13 @@ namespace ModuloUsuarioBodegon.Models
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)] 
         public int Id { get; set; }
-        public string NumeroReserva { get; set; }
+        public string NumeroReserva { get; set; } = null!;
         public DateTime Fecha { get; set; }
         public int CantidadPersonas { get; set; }
 
         // Llave foránea y relación con el Cliente
         public int ClienteId { get; set; }
-        public Cliente Cliente { get; set; }
+        public Cliente Cliente { get; set; } = null!;
 
         // Relación con el Enum TipoTurno (Almuerzo, Merienda, Cena)
         public TipoTurno Turno { get; set; }
