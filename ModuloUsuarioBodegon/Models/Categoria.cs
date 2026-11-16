@@ -8,9 +8,9 @@ namespace ModuloUsuarioBodegon.Models
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
-        public string Nombre { get; set; }
+        public string Nombre { get; set; } = null!;
         public int Posicion { get; set; }
-        public string Icono { get; set; }
+        public string Icono { get; set; } = null!;
 
         public List<Plato> Platos { get; set; } = new List<Plato>();
 
